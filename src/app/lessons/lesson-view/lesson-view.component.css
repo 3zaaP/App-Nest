@@ -1,0 +1,31 @@
+.lesson-container {
+    margin-right: 13%;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.lesson-header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.lesson-header h2 {
+
+    font-size: 35px;
+    margin: 0;
+}
+
+.info {
+    font-size: 25px;
+    color: #000000;
+}
+
+.lesson-content p {
+    font-size: 25px;
+    margin-bottom: 1rem;
+}

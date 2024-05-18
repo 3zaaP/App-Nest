@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+body {
+    font-family: tajawal !important;
+    height: 100% !important;
+    background-color: var(--background-color) !important;
+    color: var(--text-color) !important;
+}
+
+.breadcrumb {
+    background-color: #00000000 !important;
+}
+
+:root .nav {
+    --background-color: #fff !important;
+    --text-color: #000 !important;
+    --toggle-color: #ccc !important;
+    --toggle-background: #444 !important;
+    --toggle-border: #ccc !important;
+    --toggle-active-color: #fff !important;
+    --toggle-active-background: #222 !important;
+    --toggle-active-border: #fff !important;
+}
+
+
+.dark-light-toggle.active {
+    background-color: var(--toggle-active-background);
+    color: var(--toggle-active-color);
+}
+
+.dark-mode {
+    --background-color: #222 !important;
+    --text-color: #fff !important;
+    --toggle-color: #fff !important;
+    --toggle-background: #444 !important;
+    --toggle-border: #ccc !important;
+    --toggle-active-color: #222 !important;
+    --toggle-active-background: #fff !important;
+    --toggle-active-border: #222 !important;
+}

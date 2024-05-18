@@ -1,0 +1,143 @@
+<div class="container-fluid text-right">
+    <div class="row nav panel-heading text-right">
+        <div class=" col-md-4" style="display: flex;">
+            <img id="textImg" style="max-width: 10%;" src="../../../assets/document_text.png">
+            <h1>{{pageTitle}}</h1>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-3 addButton">
+            <button class=" btn btn-primary" (click)="addcontent()"> <img *ngIf="state !== 'add'" id="addImage"
+                    src="../../../assets/white_plus_sign.png">
+                {{state === 'add' ? 'رجوع' : ' إضافة محتوي دراسي'}}
+            </button>
+        </div>
+    </div>
+    <!-- show units and classes -->
+    <div class="panel-body text-right" *ngIf="state ==='init'">
+        <table id="table" class="table " *ngIf="state ==='init' && units">
+            <tbody>
+                <tr *ngFor="let unit of units ; let i = index" (click)="getLessons(unit.unit_id)">
+                    <div class="row ">
+                        <td class=" col-md-1"><img src="../../../assets/Button.png" alt=""></td>
+                        <td class="col-md-6">{{unit.unit_name}}
+                            <br>
+                            <span class="smalltext">{{unit.lessons_count}} دروس</span>
+                            <div>
+                                <table id="lessonTable" class="table ">
+                                    <tbody id="">
+                                        <tr *ngFor="let lesson of lessons ; let i=index">
+                                            <div class="oneLesson" *ngIf=" lesson.unit_id==unit.unit_id">
+                                                <td><button class="btn"
+                                                        (click)="viewLesson(lesson.lesson_name)">{{lesson.lesson_name}}</button>
+                                                </td>
+                                            </div>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <td class="text-right col-md-3 addButton">
+                            <button type="button" style="border-radius: 0px;border: black; background: none;">
+                                <img src="../../../assets/ButtonArrow.png" alt="">
+                            </button>
+                        </td>
+                    </div>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- show units and classes -->
+    <!-- add content -->
+    <form [formGroup]="form" *ngIf="state ==='add'">
+        <div class="formgroup row panel-body">
+            <div class="col-md-4">
+                <label for="unit_name">اسم المادة</label>
+                <select class="form-control" name="unit_name" id="" formControlName="subject_id">
+                    <option *ngFor="let subject of subjects ; let i = index" [value]="subject.subject_id">
+                        {{subject.subject_name}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="unit_id">الوحدة</label>
+                <select class="form-control" name="unit_id" id="unit_id" formControlName="unit_id">
+                    <option *ngFor="let unit of units ; let i = index" [value]="unit.unit_id">
+                        {{unit.unit_name}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="lessons_name">اسم الدرس</label>
+                <select class="form-control" name="lessons_name" id="" formControlName="lesson_id">
+                    <option *ngFor="let lesson of lessons ; let i = index" [value]="lesson.lesson_id">
+                        {{lesson.lesson_name}}
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="formGroup row panel-body">
+            <div class="col-md-1">
+                <button id="text" class="textLinks" (click)="toggleVideo('text')"
+                    style="background-color: rgba(240, 248, 255, 0);border-style: none; color: #004BFD;">نص
+                    <img src="../../../assets/text.png" alt="">
+                </button>
+            </div>
+            <div class="col-md-1">
+                <button id="video" class="textLinks" (click)="toggleVideo('video')"
+                    style="background-color: rgba(240, 248, 255, 0);border-style: none;">فيديو
+                    <img src="../../../assets/video-play.png" alt="">
+                </button>
+            </div>
+            <div class="col-md-10"></div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="lessons_name">الاسم</label>
+                    <input type="text" class="form-control" name="lessons_name" id="" formControlName="lesson_name">
+                </div>
+                <div class="col-md-4">
+                    <label for="lessons_tags">Tags</label>
+                    <br>
+                    <div id="list1" class="dropdown-check-list form-control" (click)="checkL()" tabindex="100">
+                        <span class="anchor form-control " id="lessons_tags">Select Tags</span>
+                        <ul id="tagsList" class="tags " tabindex="100">
+                            <li><label for="tag1">tag1</label><input id="tag1" type="checkbox" /></li>
+                            <li><label for="tag2">tag2</label><input id="tag2" type="checkbox" /></li>
+                            <li><label for="tag3">tag3</label><input id="tag3" type="checkbox" /></li>
+                            <li><label for="tag4">tag4</label><input id="tag4" type="checkbox" /></li>
+                            <li><label for="tag5">tag5</label><input id="tag5" type="checkbox" /></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4  ">
+                    <label for="lessons_description">الوقت المتوقع</label>
+                    <input type="text" class="form-control" name="lessons_time" id="" formControlName="lesson_time">
+                </div>
+                <div class="col-md-6">
+                    <label for="lessons_description">الوصف</label>
+                    <textarea class="form-control" name="lessons_description" id=""
+                        formControlName="lesson_description"></textarea>
+                </div>
+            </div>
+            <br>
+            <!-- textEditor area -->
+
+            <div *ngIf="videoPool" style="margin: auto;" class="formgroup">
+                <div class="NgxEditor__Wrapper">
+                    <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"> </ngx-editor-menu>
+                    <ngx-editor [editor]="editor" formControlName="lesson_content"> </ngx-editor>
+                </div>
+            </div>
+            <!-- textEditor area -->
+            <!-- viduploader -->
+            <div *ngIf="!videoPool" style="margin: auto;" class="formgroup">
+                <input type="file" formControlName="lesson_content" name="" id="">
+            </div>
+            <!-- viduploader -->
+            <app-content-form [form]="form" [subjects]="subjects"
+                (submit)="handleFormSubmit($event)"></app-content-form>
+        </div>
+    </form>
+
+    <!-- add content -->
+</div>

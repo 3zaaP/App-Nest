@@ -1,0 +1,14 @@
+.container-fluid {
+    direction: rtl;
+    font-family: tajawal;
+    overflow: hidden;
+}
+
+.nav {
+    background-color: #004BFD0A;
+}
+
+
+.nav {
+    padding-right: 14%;
+}

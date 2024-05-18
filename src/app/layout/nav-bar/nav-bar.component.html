@@ -1,0 +1,46 @@
+<!-- navbar-->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+<div class="container-fluid">
+    <div class="row nav">
+        <div class="col-sm-3">
+            <!-- <h1>{{pageTitle}}</h1> -->
+            <h2>المواد الدراسية</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="">الرئيسية</a></li>
+                    <li class="breadcrumb-item" *ngFor="let item of breadcrumbItems">
+                        <a routerLink="{{ item }}"> {{ item }}</a>
+                    </li>
+                </ol>
+            </nav>
+
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-3">
+            <div class="user row">
+                <div class="col-sm-2">
+                    <img src="../../../assets/usericon.png" alt="">
+                </div>
+                <div class="col-sm-4">
+                    <p>احمد سليمان</p>
+                    <a href="#">معلم</a>
+                </div>
+                <div class="col-6 " style="display: flex; justify-content: center;">
+                    <img src="./../../../assets/arrow_down.png" alt="">
+                    <br>
+                    <div class="custom-control custom-switch container-fluid">
+                        <input type="checkbox" (change)="toggleDarkTheme($event)" class="custom-control-input"
+                            id="darkModeToggle">
+                        <label class="custom-control-label dark-light-toggle" for="darkModeToggle">
+                            <i class="fas fa-moon"></i>
+                        </label>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- <h1>{{userInfo}} {{userInfo[0].img}}</h1> -->
+        </div>
+    </div>
+</div>
+<!-- navbar-->

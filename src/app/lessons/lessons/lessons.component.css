@@ -1,0 +1,146 @@
+.container-fluid {
+    margin-right: 13%;
+    padding-left: 13% !important;
+}
+
+.addButton {
+    display: flex;
+    justify-content: flex-end;
+    align-items: top;
+    border-radius: 8px;
+
+}
+
+.addButton button {
+    border-radius: 37.79px;
+    font-size: 14.34px;
+    font-weight: 700;
+}
+
+.table {
+    background-color: #f1f7ff00;
+    --bs-table-bg: #f1f7ff00;
+    border-radius: 8px;
+}
+
+.smalltext {
+    color: #09243478;
+    font-size: 12px;
+}
+
+.table tr {
+    border-radius: 8px;
+}
+
+.textLinks {
+    text-decoration: none;
+    color: black;
+}
+
+.formgroup {
+    padding: 3%;
+    background-color: #F1F7FF;
+    border-radius: 8px;
+}
+
+.nav #textImg {
+    position: relative;
+    align-self: center;
+    left: 20px;
+    width: 30px;
+}
+
+.panel-heading {
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 24px;
+    font-weight: 700;
+    align-items: center;
+}
+
+.panel-body {
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.panel-body button {
+    display: flex;
+
+}
+
+.panel-body .table tr {
+    display: block;
+    margin: 1rem;
+    margin-bottom: 10px;
+    background-color: #F1F7FF;
+    border-radius: 18px;
+}
+
+ngx-editor-menu {
+    display: flex;
+    justify-content: center;
+
+}
+
+#container {
+    width: 1000px;
+}
+
+#lessons_tags option:checked {
+    background-color: rgb(174, 173, 230);
+}
+
+.dropdown-check-list {
+    display: inline-block;
+}
+
+.dropdown-check-list .anchor {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 50px 5px 10px;
+    border: 1px solid #ccc;
+}
+
+.dropdown-check-list .anchor:after {
+    position: absolute;
+    content: "";
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    padding: 5px;
+    right: 10px;
+    top: 20%;
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.dropdown-check-list .anchor:active:after {
+    right: 8px;
+    top: 21%;
+}
+
+.dropdown-check-list ul.tags {
+    padding: 2px;
+    display: none;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.dropdown-check-list ul.tags li {
+    list-style: none;
+}
+
+.dropdown-check-list.visible .anchor {
+    color: #0094ff;
+}
+
+.dropdown-check-list.visible .tags {
+    display: block;
+}

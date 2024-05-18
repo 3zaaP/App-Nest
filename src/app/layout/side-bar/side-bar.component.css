@@ -1,0 +1,99 @@
+/* Sidebar Styles */
+#sidebar {
+    position: fixed;
+    right: 0;
+    z-index: 99;
+    width: 14%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(0, 76, 253), rgb(2, 2, 82));
+    transition: all 0.5s ease;
+}
+
+#sidebar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../../../assets/pattern_hexagon.png');
+    background-size: contain;
+}
+
+header a {
+    position: relative;
+    z-index: 9999;
+    background: url('../../../assets/mozakrah.png') no-repeat center/cover;
+    height: 100px;
+    color: #fff;
+    display: block;
+}
+
+.nav {
+    display: flex;
+    height: 90%;
+    align-content: space-between;
+    margin-top: 20px;
+    align-self: center;
+    padding: 0;
+}
+
+.logout button {
+    background-color: #00000000 !important;
+    color: white !important;
+}
+
+.nav img {
+    position: relative;
+    align-self: center;
+    left: 20px;
+    width: 30px;
+}
+
+.nav li {
+    list-style: none;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.nav button {
+    position: relative;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #ffff;
+    color: #004BFD;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px #000000;
+    font-size: 24px;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav button:hover {
+    text-shadow: none;
+}
+
+/* Mobile View */
+@media only screen and (max-width: 600px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        background-color: #004cfd;
+    }
+
+    #sidebar header a {
+        height: 50px;
+    }
+
+    #sidebar .nav button {
+        font-size: 16px;
+        text-shadow: 2px 2px 2px #000000;
+    }
+
+    .row>* {
+        width: 100%;
+    }
+}

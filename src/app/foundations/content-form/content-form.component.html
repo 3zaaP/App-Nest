@@ -1,0 +1,13 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="formGroup">
+    <select formControlName="subject_id" style="display: none;">
+        <option *ngFor="let subject of subjects" [value]="subject.id">{{ subject.name }}</option>
+    </select>
+    <div class="row buttons">
+        <div class="col-md-1">
+            <button type="submit" class="btn btn-outline-primary active">Submit</button>
+        </div>
+        <div class="col-md-1">
+            <button type="cancel" class="btn btn-outline-danger active" (click)="cancelForm()">cancle</button>
+        </div>
+    </div>
+</form>
