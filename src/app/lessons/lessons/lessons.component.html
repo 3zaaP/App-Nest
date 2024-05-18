@@ -1,4 +1,4 @@
-<div class="container-fluid text-right">
+<div class="container-fluid text-right no-text">
     <div class="row nav panel-heading text-right">
         <div class=" col-md-4" style="display: flex;">
             <img id="textImg" style="max-width: 10%;" src="../../../assets/document_text.png">
@@ -23,10 +23,10 @@
                             <br>
                             <span class="smalltext">{{unit.lessons_count}} دروس</span>
                             <div>
-                                <table id="lessonTable" class="table ">
+                                <table id="lessonTable" class="table " *ngIf="unit.unit_id === unitId">
                                     <tbody id="">
                                         <tr *ngFor="let lesson of lessons ; let i=index">
-                                            <div class="oneLesson" *ngIf=" lesson.unit_id==unit.unit_id">
+                                            <div class="oneLesson" *ngIf="lesson.unit_id==unit.unit_id">
                                                 <td><button class="btn"
                                                         (click)="viewLesson(lesson.lesson_name)">{{lesson.lesson_name}}</button>
                                                 </td>
@@ -48,7 +48,7 @@
     <!-- show units and classes -->
     <!-- add content -->
     <form [formGroup]="form" *ngIf="state ==='add'">
-        <div class="formgroup row panel-body">
+        <div class="formGroup row panel-body">
             <div class="col-md-4">
                 <label for="unit_name">اسم المادة</label>
                 <select class="form-control" name="unit_name" id="" formControlName="subject_id">
@@ -68,29 +68,31 @@
             <div class="col-md-4">
                 <label for="lessons_name">اسم الدرس</label>
                 <select class="form-control" name="lessons_name" id="" formControlName="lesson_id">
-                    <option *ngFor="let lesson of lessons ; let i = index" [value]="lesson.lesson_id">
+                    <option *ngFor="let lesson of allLessons ; let i = index" [value]="lesson.lesson_id">
                         {{lesson.lesson_name}}
                     </option>
                 </select>
             </div>
         </div>
         <div class="formGroup row panel-body">
-            <div class="col-md-1">
-                <button id="text" class="textLinks" (click)="toggleVideo('text')"
-                    style="background-color: rgba(240, 248, 255, 0);border-style: none; color: #004BFD;">نص
-                    <img src="../../../assets/text.png" alt="">
-                </button>
-            </div>
-            <div class="col-md-1">
-                <button id="video" class="textLinks" (click)="toggleVideo('video')"
-                    style="background-color: rgba(240, 248, 255, 0);border-style: none;">فيديو
-                    <img src="../../../assets/video-play.png" alt="">
-                </button>
+            <div class="col-md-12 row">
+                <div class="col-md-1">
+                    <button id="text" class="textLinks" (click)="toggleVideo('text')"
+                        style="background-color: rgba(240, 248, 255, 0);border-style: none; color: #004BFD;">نص
+                        <i class="fa-duotone fa-t"></i>
+                    </button>
+                </div>
+                <div class="col-md-1">
+                    <button id="video" class="textLinks" (click)="toggleVideo('video')"
+                        style="background-color: rgba(240, 248, 255, 0);border-style: none;">فيديو
+                        <i class="fa-solid fa-clapperboard"></i>
+
+                    </button>
+                </div>
             </div>
             <div class="col-md-10"></div>
-            <br>
-            <br>
-            <div class="row">
+
+            <div class="row panel-body">
                 <div class="col-md-4">
                     <label for="lessons_name">الاسم</label>
                     <input type="text" class="form-control" name="lessons_name" id="" formControlName="lesson_name">
@@ -98,15 +100,55 @@
                 <div class="col-md-4">
                     <label for="lessons_tags">Tags</label>
                     <br>
-                    <div id="list1" class="dropdown-check-list form-control" (click)="checkL()" tabindex="100">
+                    <div id="list1" class="row dropdown-check-list " multible size="1" (click)="checkL()"
+                        style="min-width: 100%;">
                         <span class="anchor form-control " id="lessons_tags">Select Tags</span>
-                        <ul id="tagsList" class="tags " tabindex="100">
-                            <li><label for="tag1">tag1</label><input id="tag1" type="checkbox" /></li>
-                            <li><label for="tag2">tag2</label><input id="tag2" type="checkbox" /></li>
-                            <li><label for="tag3">tag3</label><input id="tag3" type="checkbox" /></li>
-                            <li><label for="tag4">tag4</label><input id="tag4" type="checkbox" /></li>
-                            <li><label for="tag5">tag5</label><input id="tag5" type="checkbox" /></li>
+
+                        <ul id="tagsList" class="col row tags form-switch">
+                            <li class="col-md-3">
+                                <input value="tag1" (change)="onCheckboxChange($event)" class=" btn-check" id="tag1"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag1">tag1</label>
+                            </li>
+                            <li class="col-md-3">
+                                <input value="tag2" (change)="onCheckboxChange($event)" class=" btn-check" id="tag2"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag2">tag2</label>
+                            </li>
+                            <li class="col-md-3">
+                                <input value="tag3" (change)="onCheckboxChange($event)" class=" btn-check" id="tag3"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag3">tag3</label>
+                            </li>
+                            <li class="col-md-3">
+                                <input value="tag4" (change)="onCheckboxChange($event)" class=" btn-check" id="tag4"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag4">tag4</label>
+                            </li>
                         </ul>
+                        <ul id="tagsList" class="col row tags form-switch">
+                            <li class="col-md-3">
+                                <input value="tag5" (change)="onCheckboxChange($event)" class=" btn-check" id="tag5"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag5">tag5</label>
+                            </li>
+                            <li class="col-md-3">
+                                <input value="tag6" (change)="onCheckboxChange($event)" class=" btn-check" id="tag6"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag6">tag6</label>
+                            </li>
+                            <li class="col-md-3">
+                                <input value="tag7" (change)="onCheckboxChange($event)" class=" btn-check" id="tag7"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag7">tag7</label>
+                            </li>
+                            <li class="col-md-3">
+                                <input value="tag8" (change)="onCheckboxChange($event)" class=" btn-check" id="tag8"
+                                    type="checkbox" />
+                                <label class=" btn btn-outline-primary" for="tag8">tag8</label>
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
                 <div class="col-md-4  ">
@@ -118,8 +160,8 @@
                     <textarea class="form-control" name="lessons_description" id=""
                         formControlName="lesson_description"></textarea>
                 </div>
+
             </div>
-            <br>
             <!-- textEditor area -->
 
             <div *ngIf="videoPool" style="margin: auto;" class="formgroup">

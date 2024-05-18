@@ -1,6 +1,4 @@
 <!-- navbar-->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
 <div class="container-fluid">
     <div class="row nav">
         <div class="col-sm-3">
@@ -8,9 +6,9 @@
             <h2>المواد الدراسية</h2>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li><a href="">الرئيسية</a></li>
-                    <li class="breadcrumb-item" *ngFor="let item of breadcrumbItems">
-                        <a routerLink="{{ item }}"> {{ item }}</a>
+                    <li class="breadcrumb-item" *ngFor="let item of breadcrumbItems;let i = index">
+                        <a routerLink="{{ i === 0? item:'' }}" [ngClass]="{'last': i === (breadcrumbItems.length-1)}">
+                            {{ item }}</a>
                     </li>
                 </ol>
             </nav>
@@ -30,7 +28,7 @@
                     <img src="./../../../assets/arrow_down.png" alt="">
                     <br>
                     <div class="custom-control custom-switch container-fluid">
-                        <input type="checkbox" (change)="toggleDarkTheme($event)" class="custom-control-input"
+                        <input hidden type="checkbox" (change)="toggleDarkTheme($event)" class="custom-control-input"
                             id="darkModeToggle">
                         <label class="custom-control-label dark-light-toggle" for="darkModeToggle">
                             <i class="fas fa-moon"></i>

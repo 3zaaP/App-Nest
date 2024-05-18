@@ -1,16 +1,22 @@
 <div class="lesson-container">
-    <div class="lesson-header">
-        <h2> اسم الدرس :{{lesson.lesson_name}}</h2>
-        <h2>{{lesson.subject_name}}</h2>
-        <h2>اسم الوحدة : {{lesson.unit_name}}</h2>
-        <h2>التوقيت المتاح: {{lesson.unit_name}}</h2>
-        <h2>اسم المادة : {{lesson.unit_name}}</h2>
-        <h2>: Tags {{lesson.unit_name}}</h2>
-        <h2>الاسم : {{lesson.unit_name}}</h2>
+    <div class="lesson-header row">
+        <div class="col-8">
+            <h4>اسم الوحدة : {{lesson.unit_name}}</h4>
+            <h4> اسم الدرس :{{lesson.lesson_name}}</h4>
+            <h4>اسم المادة : {{lesson.subject_name}}</h4>
+            <h4>الوصف:{{ lesson.description }}</h4>
+        </div>
+        <div class="col-4">
+            <h4>التوقيت المتاح: {{lesson.time}}</h4>
+            <div>
+                <h4>TAGS:
+                    <button *ngFor="let tag of lesson.tags ;" class="btn btn-primary btn-lg " clicked>{{tag}}</button>
+                </h4>
+                <h4>الاسم : {{lesson.unit_name}}</h4>
+            </div>
+            الحالة :
+            رسمي:
+        </div>
+    </div>
 
-    </div>
-    <div class="lesson-content">
-        <p>الوصف:{{ lesson.description }}</p>
-        الحالة :
-    </div>
 </div>

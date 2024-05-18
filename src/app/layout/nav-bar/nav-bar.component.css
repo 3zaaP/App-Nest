@@ -17,6 +17,11 @@
     font-weight: bold;
 }
 
+.last {
+    color: rgb(0, 21, 255) !important;
+    text-decoration: underline !important;
+}
+
 .nav h2 {
     font-size: 20px;
 

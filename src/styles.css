@@ -29,7 +29,7 @@ body {
     color: var(--toggle-active-color);
 }
 
-.dark-mode {
+.dark-mode:not(.formGroup) {
     --background-color: #222 !important;
     --text-color: #fff !important;
     --toggle-color: #fff !important;

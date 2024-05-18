@@ -28,17 +28,32 @@
     font-size: 12px;
 }
 
-.table tr {
+.table tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
     border-radius: 8px;
+    border: #f0f8ff00 !important;
 }
 
 .textLinks {
-    text-decoration: none;
-    color: black;
+    color: rgb(174, 174, 174);
+    direction: ltr;
+    padding: 1%;
 }
 
-.formgroup {
+.textLinks i {
+    padding: 0 3% 0 10%;
+    margin: 1%;
+    align-self: center;
+}
+
+.formGroup {
     padding: 3%;
+    color: black;
+    margin: 1%;
     background-color: #F1F7FF;
     border-radius: 8px;
 }
@@ -79,15 +94,15 @@
     border-radius: 18px;
 }
 
+.btn-check {
+    margin: 0 50px 0 50px;
+}
+
 ngx-editor-menu {
     display: flex;
     justify-content: center;
-
 }
 
-#container {
-    width: 1000px;
-}
 
 #lessons_tags option:checked {
     background-color: rgb(174, 173, 230);
@@ -133,8 +148,14 @@ ngx-editor-menu {
     border-top: none;
 }
 
+
 .dropdown-check-list ul.tags li {
     list-style: none;
+}
+
+.dropdown-check-list.visible {
+    justify-content: space-around;
+    flex-direction: row;
 }
 
 .dropdown-check-list.visible .anchor {
@@ -142,5 +163,7 @@ ngx-editor-menu {
 }
 
 .dropdown-check-list.visible .tags {
-    display: block;
+    display: flex;
+    justify-content: space-evenly;
+    border: #0094ff;
 }

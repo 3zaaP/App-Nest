@@ -25,6 +25,8 @@ export class LessonsComponent implements OnInit {
   html = '';
   lessons: any;
   unitId: any;
+  checkedArray: any[] = [];
+  allLessons: any;
   constructor(private fb: FormBuilder, private themeService: ThemeService, private service: LessonsService, private router: Router) { }
   form: FormGroup = new FormGroup({});
   units: any;
@@ -32,6 +34,7 @@ export class LessonsComponent implements OnInit {
   videoPool = true;
   state = 'init'
   ngOnInit(): void {
+    this.allLessons = this.service.getAllLessons();
     this.editor = new Editor();
     this.getUnits();
     this.form = this.fb.group({
@@ -40,7 +43,7 @@ export class LessonsComponent implements OnInit {
       lessons_count: new FormControl(''),
       lesson_id: new FormControl(''),
       lesson_name: new FormControl(''),
-      lesson_tags: new FormControl(''),
+      lesson_tags: new FormControl(this.checkedArray),
       lesson_time: new FormControl(''),
       lesson_description: new FormControl(''),
       lesson_content: new FormControl(''),
@@ -73,9 +76,6 @@ export class LessonsComponent implements OnInit {
     this.subjects = this.service.getSubjects()
   }
 
-  onSubmit() {
-
-  }
   onFileChange(event: any) {
 
   }
@@ -86,6 +86,13 @@ export class LessonsComponent implements OnInit {
     else
       checkList.classList.add('visible');
 
+  }
+  onCheckboxChange(event: any) {
+    if (event.target.checked) {
+      this.checkedArray.push(event.target.value)
+    } else {
+      this.checkedArray.splice(this.checkedArray.indexOf(event.target.value), 1);
+    }
   }
   toggleVideo(id: any) {
     var text = document.getElementById('text')!;

@@ -21,9 +21,10 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     this.service.getCurrentPath().subscribe(path => {
       this.breadcrumbItems = [];
-      path.forEach((c) => {
+      path.forEach((c, i) => {
         c = decodeURIComponent(c);
-        this.breadcrumbItems.push(c);
+        i === 0 && this.breadcrumbItems.push('الرئيسية/')
+        c === '' ? '' : this.breadcrumbItems.push(c);
       })
     });
 

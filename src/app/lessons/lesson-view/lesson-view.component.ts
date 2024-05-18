@@ -29,5 +29,8 @@ export class LessonViewComponent implements OnInit {
   ngOnInit(): void {
     this.lessonId = this.route.snapshot.paramMap.get('name');
     this.lesson = this.service.getLesson(this.lessonId);
+    this.lesson.tags = Object.keys(this.lesson.tags).map(tag => tag);
+    console.log(this.lesson.tags);
+
   }
 }

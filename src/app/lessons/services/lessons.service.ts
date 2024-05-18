@@ -36,37 +36,59 @@ export class LessonsService {
       lesson_id: 0,
       lesson_name: 'الدرس الأول',
       unit_id: 0,
+      unit_name: 'الوحدة الأولي',
+      time: '2 H',
+      subject_name: 'المادة الأولى',
+      tags: { 'tag5': true, 'tag1': true, 'tag6': true },
 
     },
     {
       lesson_id: 1,
       lesson_name: 'الدرس الثاني',
-      unit_id: 0
+      unit_id: 0,
+      unit_name: 'الوحدة الأولي',
+      time: '2 H',
+      subject_name: 'المادة الأولى',
+      tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+
     },
     {
       lesson_id: 2,
       lesson_name: 'الدرس الثالث',
-      unit_id: 1
+      unit_id: 1,
+      unit_name: 'الوحدة الثانية',
+      time: '2 H',
+      subject_name: 'المادة الأولى',
+      tags: { 'tag5': true, 'tag1': true, 'tag6': true },
     },
     {
       lesson_id: 3,
       lesson_name: 'الدرس الرابع',
-      unit_id: 1
+      unit_id: 1,
+      unit_name: 'الوحدة الثانية',
+      time: '2 H',
+      subject_name: 'المادة الثانية',
+      tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+
     },
     {
       lesson_id: 4,
       lesson_name: 'الدرس الخامس',
-      unit_id: 2
+      unit_id: 2,
+      unit_name: 'الوحدة الثالثة',
+      time: '2 H',
+      subject_name: 'المادة الثالثة',
+      tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+
     },
     {
       lesson_id: 5,
       lesson_name: 'الدرس السادس',
-      unit_id: 2
-    },
-    {
-      lesson_id: 6,
-      lesson_name: 'الدرس الأول',
-      unit_id: 3
+      unit_id: 2,
+      unit_name: 'الوحدة الثالثة',
+      time: '2 H',
+      subject_name: 'المادة الرابعة',
+      tags: { 'tag5': true, 'tag1': true, 'tag6': true },
     }
   ];
   private subjects = [
@@ -100,10 +122,15 @@ export class LessonsService {
   getLessons(id: any): any[] {
     return this.lessons.filter((c: any) => c.unit_id == id)
   }
+  getAllLessons() {
+    return this.lessons
+  }
   getLesson(id: any): {} {
     var lesson = this.lessons.filter((c: any) => c.lesson_name == id)
     if (lesson[0]) {
+      console.log(lesson);
       return (lesson[0]);
+
     } else {
       return {}
     }
