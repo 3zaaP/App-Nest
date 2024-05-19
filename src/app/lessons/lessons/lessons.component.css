@@ -58,19 +58,24 @@ tr {
     border-radius: 8px;
 }
 
-.nav #textImg {
+.panel-heading #textImg {
     position: relative;
     align-self: center;
+    max-width: 10%;
     left: 20px;
     width: 30px;
 }
 
 .panel-heading {
-    border-radius: 8px;
+    display: flex;
     padding: 1rem;
     font-size: 24px;
     font-weight: 700;
     align-items: center;
+}
+
+.panel-heading .col {
+    display: flex;
 }
 
 .panel-body {
@@ -166,4 +171,44 @@ ngx-editor-menu {
     display: flex;
     justify-content: space-evenly;
     border: #0094ff;
+}
+
+.card {
+    margin: 3%;
+    padding: 3%;
+}
+
+.card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-fluid {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .panel-heading {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .panel-heading #textImg {
+        left: 10px;
+        width: 30px;
+        max-width: 50%;
+    }
+
+    .panel-heading .col {
+        display: flex;
+        min-width: 100%;
+    }
 }

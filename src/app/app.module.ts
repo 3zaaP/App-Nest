@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './layout/nav-bar/nav-bar.component';
@@ -12,8 +11,8 @@ import { NgxEditorModule } from 'ngx-editor';
 import { ContentFormComponent } from './foundations/content-form/content-form.component';
 import { LoaderComponent } from './foundations/loader/loader.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LessonViewComponent } from './lessons/lesson-view/lesson-view.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { LessonViewComponent } from './lessons/lesson-view/lesson-view.component
     LessonViewComponent
   ],
   imports: [
-    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

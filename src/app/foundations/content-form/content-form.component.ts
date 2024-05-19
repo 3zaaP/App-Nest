@@ -14,10 +14,8 @@ export class ContentFormComponent {
   constructor() { }
 
   onSubmit() {
-    // Emit form data on submit
     this.submit.emit(this.form.value);
     console.log(this.form.value);
-
   }
   cancelForm() {
     this.form.reset();

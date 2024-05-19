@@ -1,11 +1,11 @@
 <div class="container-fluid text-right no-text">
-    <div class="row nav panel-heading text-right">
-        <div class=" col-md-4" style="display: flex;">
-            <img id="textImg" style="max-width: 10%;" src="../../../assets/document_text.png">
+    <div class="row panel-heading text-right">
+        <div class=" col-md-4 col">
+            <img id="textImg" src="../../../assets/document_text.png">
             <h1>{{pageTitle}}</h1>
         </div>
-        <div class="col-md-4"></div>
-        <div class="col-md-3 addButton">
+        <div class="col-md-4 col "></div>
+        <div class="col-md-3 col  addButton">
             <button class=" btn btn-primary" (click)="addcontent()"> <img *ngIf="state !== 'add'" id="addImage"
                     src="../../../assets/white_plus_sign.png">
                 {{state === 'add' ? 'رجوع' : ' إضافة محتوي دراسي'}}
@@ -23,15 +23,37 @@
                             <br>
                             <span class="smalltext">{{unit.lessons_count}} دروس</span>
                             <div>
-                                <table id="lessonTable" class="table " *ngIf="unit.unit_id === unitId">
-                                    <tbody id="">
-                                        <tr *ngFor="let lesson of lessons ; let i=index">
+                                <table id="lessonTable" class="table" *ngIf="unit.unit_id === unitId">
+                                    <tbody id="" class="row">
+                                        <div *ngFor="let lesson of lessons ; let i=index" class="card col-md-4"
+                                            style="width: 18rem;">
+                                            <div *ngIf="lesson.unit_id==unit.unit_id">
+                                                <img src="../../../assets/books.png" class="card-img-top">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{lesson.unit_name}}</h5>
+                                                    <p class="card-text">{{lesson.lesson_name}} </p>
+                                                    <p class="fw-lighter smalltext text-wrap card-text">
+                                                        {{lesson.description}}
+                                                    </p>
+                                                    <div class="row ">
+                                                        <a class="col-md-4 btn btn-primary "
+                                                            (click)="viewLesson(lesson.lesson_name)">Go
+                                                        </a>
+                                                        <a href="#" class="col-md-4 btn  ">
+                                                            <i class="fa fa-clapperboard"></i></a>
+                                                        <a href="#" class="col-md-4 btn btn-danger">Go
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <tr *ngFor="let lesson of lessons ; let i=index">
                                             <div class="oneLesson" *ngIf="lesson.unit_id==unit.unit_id">
                                                 <td><button class="btn"
                                                         (click)="viewLesson(lesson.lesson_name)">{{lesson.lesson_name}}</button>
                                                 </td>
                                             </div>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                             </div>
@@ -50,7 +72,7 @@
     <form [formGroup]="form" *ngIf="state ==='add'">
         <div class="formGroup row panel-body">
             <div class="col-md-4">
-                <label for="unit_name">اسم المادة</label>
+                <label class="form-label" for="unit_name">اسم المادة</label>
                 <select class="form-control" name="unit_name" id="" formControlName="subject_id">
                     <option *ngFor="let subject of subjects ; let i = index" [value]="subject.subject_id">
                         {{subject.subject_name}}
@@ -58,7 +80,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label for="unit_id">الوحدة</label>
+                <label class="form-label" for="unit_id">الوحدة</label>
                 <select class="form-control" name="unit_id" id="unit_id" formControlName="unit_id">
                     <option *ngFor="let unit of units ; let i = index" [value]="unit.unit_id">
                         {{unit.unit_name}}
@@ -66,7 +88,7 @@
                 </select>
             </div>
             <div class="col-md-4">
-                <label for="lessons_name">اسم الدرس</label>
+                <label class="form-label" for="lessons_name">اسم الدرس</label>
                 <select class="form-control" name="lessons_name" id="" formControlName="lesson_id">
                     <option *ngFor="let lesson of allLessons ; let i = index" [value]="lesson.lesson_id">
                         {{lesson.lesson_name}}
@@ -91,14 +113,13 @@
                 </div>
             </div>
             <div class="col-md-10"></div>
-
             <div class="row panel-body">
                 <div class="col-md-4">
-                    <label for="lessons_name">الاسم</label>
+                    <label class="form-label" for="lessons_name">الاسم</label>
                     <input type="text" class="form-control" name="lessons_name" id="" formControlName="lesson_name">
                 </div>
                 <div class="col-md-4">
-                    <label for="lessons_tags">Tags</label>
+                    <label class="form-label" for="lessons_tags">Tags</label>
                     <br>
                     <div id="list1" class="row dropdown-check-list " multible size="1" (click)="checkL()"
                         style="min-width: 100%;">
@@ -152,11 +173,11 @@
                     </div>
                 </div>
                 <div class="col-md-4  ">
-                    <label for="lessons_description">الوقت المتوقع</label>
+                    <label class="form-label" for="lessons_description">الوقت المتوقع</label>
                     <input type="text" class="form-control" name="lessons_time" id="" formControlName="lesson_time">
                 </div>
                 <div class="col-md-6">
-                    <label for="lessons_description">الوصف</label>
+                    <label class="form-label" for="lessons_description">الوصف</label>
                     <textarea class="form-control" name="lessons_description" id=""
                         formControlName="lesson_description"></textarea>
                 </div>
@@ -172,8 +193,9 @@
             </div>
             <!-- textEditor area -->
             <!-- viduploader -->
-            <div *ngIf="!videoPool" style="margin: auto;" class="formgroup">
-                <input type="file" formControlName="lesson_content" name="" id="">
+            <div *ngIf="!videoPool" class="formgroup mb-3">
+                <label for="formFile" class="form-label">Default file input example</label>
+                <input formControlName="lesson_content" class="form-control" type="file" id="formFile">
             </div>
             <!-- viduploader -->
             <app-content-form [form]="form" [subjects]="subjects"

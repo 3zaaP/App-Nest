@@ -1,4 +1,4 @@
-.loader-container {
+/* .loader-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,4 +16,7 @@
     margin-top: 10px;
     font-size: 45px;
     font-weight: bold;
+} */
+.modal {
+    z-index: 99999999;
 }

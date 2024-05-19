@@ -1,22 +1,66 @@
 <div class="lesson-container">
-    <div class="lesson-header row">
-        <div class="col-8">
-            <h4>اسم الوحدة : {{lesson.unit_name}}</h4>
-            <h4> اسم الدرس :{{lesson.lesson_name}}</h4>
-            <h4>اسم المادة : {{lesson.subject_name}}</h4>
-            <h4>الوصف:{{ lesson.description }}</h4>
-        </div>
-        <div class="col-4">
-            <h4>التوقيت المتاح: {{lesson.time}}</h4>
-            <div>
-                <h4>TAGS:
-                    <button *ngFor="let tag of lesson.tags ;" class="btn btn-primary btn-lg " clicked>{{tag}}</button>
+    <div class="panel-body row">
+        <div class="col-sm-8 col">
+            <div class="row">
+                <h4 class="col-sm-2 col ">اسم الوحدة:
                 </h4>
-                <h4>الاسم : {{lesson.unit_name}}</h4>
+                <h5 class="col-sm-2 col "> {{lesson.unit_name}}</h5>
             </div>
-            الحالة :
-            رسمي:
+
+            <div class="row ">
+                <h4 class="col-sm-2 col  ">اسم الدرس :
+                </h4>
+                <h5 class="col-sm-2 col "> {{lesson.lesson_name}}</h5>
+            </div>
+            <div class="row ">
+                <h4 class="col-sm-2 col  ">اسم المادة :
+                </h4>
+                <h5 class="col-sm-2 col "> {{lesson.subject_name}}</h5>
+            </div>
+
+        </div>
+        <div class="col-sm-4">
+            <div class="row">
+                <h4 class="col-sm-2 col ">التوقيت المتاح:
+                </h4>
+                <h5 class="col-sm-2 col "> {{lesson.time}}</h5>
+            </div>
+            <div>
+                <h4 class="row">TAGS:
+                    <div *ngFor="let tag of lesson.tags ;" class="badge col-md-3 col bg-primary"> {{tag}}
+                    </div>
+                </h4>
+            </div>
+            <div class="row">
+                <h4 class="col-sm-2 col ">الاسم:
+                </h4>
+                <h5 class="col-sm-2 col "> {{lesson.unit_name}}</h5>
+            </div>
+
+        </div>
+        <div class="row col bottom-col col-sm-12">
+            <div class="col-sm-7">
+                <h4>الوصف</h4>
+                <h5>{{lesson.description}}</h5>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-2 row">
+
+                <h4 class="col-sm-6 col ">
+                    الحالة : {{lesson.time}}
+                </h4>
+                <div class="col">
+
+                    <input type="text" name="chk" class="badge col-md-3 col bg-primary">
+                    <label for="chk">رسمي:<i class="fa fa-check"></i></label>
+                </div>
+
+            </div>
         </div>
     </div>
+    <div class="panel-body">
 
-</div>
+        <div class="row">
+        </div>
+
+    </div>

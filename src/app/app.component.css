@@ -1,7 +1,5 @@
 .container-fluid {
     direction: rtl;
-    font-family: tajawal;
-    overflow: hidden;
 }
 
 .nav {
@@ -11,4 +9,10 @@
 
 .nav {
     padding-right: 14%;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav {
+        padding-right: 0%;
+    }
 }

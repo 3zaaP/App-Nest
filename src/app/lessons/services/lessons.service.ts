@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MatDialog } from '@angular/material/dialog';
 import { LoaderComponent } from '../../foundations/loader/loader.component';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -40,6 +40,7 @@ export class LessonsService {
       time: '2 H',
       subject_name: 'المادة الأولى',
       tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+      description: 'يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم  يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات '
 
     },
     {
@@ -50,7 +51,7 @@ export class LessonsService {
       time: '2 H',
       subject_name: 'المادة الأولى',
       tags: { 'tag5': true, 'tag1': true, 'tag6': true },
-
+      description: 'يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم  يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات '
     },
     {
       lesson_id: 2,
@@ -60,6 +61,7 @@ export class LessonsService {
       time: '2 H',
       subject_name: 'المادة الأولى',
       tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+      description: 'يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم  يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات '
     },
     {
       lesson_id: 3,
@@ -69,6 +71,7 @@ export class LessonsService {
       time: '2 H',
       subject_name: 'المادة الثانية',
       tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+      description: 'يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم  يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات '
 
     },
     {
@@ -79,6 +82,7 @@ export class LessonsService {
       time: '2 H',
       subject_name: 'المادة الثالثة',
       tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+      description: 'يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم  يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات '
 
     },
     {
@@ -89,6 +93,7 @@ export class LessonsService {
       time: '2 H',
       subject_name: 'المادة الرابعة',
       tags: { 'tag5': true, 'tag1': true, 'tag6': true },
+      description: 'يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم  يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات .. ويصل للمعلم تقرير كامل عن تفاعلهم يتفاعل الطلاب مع المعلم بالكتابة والصوت وحل الأسئلة والاختبارات '
     }
   ];
   private subjects = [
@@ -110,7 +115,7 @@ export class LessonsService {
       subject_name: 'المادة الرابعة',
     }
   ]
-  constructor(private dialog: MatDialog) { }
+  constructor() { }
 
   getUnits(): any[] {
     return this.units
@@ -140,18 +145,16 @@ export class LessonsService {
     return this.unitlessons;
   }
   createOrUpdateContent(data: any): Observable<any> {
-    const dialogRef = this.dialog.open(LoaderComponent, {
-      panelClass: 'transparent',
-      disableClose: true,
-      data: {
-        message: 'Please wait...'
-      }
-    });
-
+    // const dialogRef = this.dialog.open(LoaderComponent, {
+    //   panelClass: 'transparent',
+    //   disableClose: true,
+    //   data: {
+    //     message: 'Please wait...'
+    //   }
+    // });
     return new Observable(observer => {
-
       const timeoutId = setTimeout(() => {
-        dialogRef.close();
+        //dialogRef.close();
         observer.next({ message: 'Success' });
         observer.complete();
       }, 3000);
