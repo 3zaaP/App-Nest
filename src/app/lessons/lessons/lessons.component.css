@@ -174,8 +174,9 @@ ngx-editor-menu {
 }
 
 .card {
-    margin: 3%;
-    padding: 3%;
+    margin: 1%;
+    padding: 1%;
+    width: 40%;
 }
 
 .card-text {
@@ -189,8 +190,8 @@ ngx-editor-menu {
 
 @media only screen and (max-width: 600px) {
     .container-fluid {
-        margin: 0 !important;
         padding: 0 !important;
+        margin-right: 4%;
     }
 
     .panel-heading {
@@ -210,5 +211,15 @@ ngx-editor-menu {
     .panel-heading .col {
         display: flex;
         min-width: 100%;
+    }
+
+    .table .row {
+        margin: 0;
+    }
+
+    .card {
+        margin: 0%;
+        padding: 1%;
+        width: 100%;
     }
 }

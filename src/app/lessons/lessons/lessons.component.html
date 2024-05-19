@@ -12,7 +12,7 @@
             </button>
         </div>
     </div>
-    <!-- show units and classes -->
+    <!-- show units and Lessons -->
     <div class="panel-body text-right" *ngIf="state ==='init'">
         <table id="table" class="table " *ngIf="state ==='init' && units">
             <tbody>
@@ -22,41 +22,33 @@
                         <td class="col-md-6">{{unit.unit_name}}
                             <br>
                             <span class="smalltext">{{unit.lessons_count}} دروس</span>
-                            <div>
-                                <table id="lessonTable" class="table" *ngIf="unit.unit_id === unitId">
-                                    <tbody id="" class="row">
-                                        <div *ngFor="let lesson of lessons ; let i=index" class="card col-md-4"
-                                            style="width: 18rem;">
-                                            <div *ngIf="lesson.unit_id==unit.unit_id">
-                                                <img src="../../../assets/books.png" class="card-img-top">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{lesson.unit_name}}</h5>
-                                                    <p class="card-text">{{lesson.lesson_name}} </p>
-                                                    <p class="fw-lighter smalltext text-wrap card-text">
-                                                        {{lesson.description}}
-                                                    </p>
-                                                    <div class="row ">
-                                                        <a class="col-md-4 btn btn-primary "
-                                                            (click)="viewLesson(lesson.lesson_name)">Go
-                                                        </a>
-                                                        <a href="#" class="col-md-4 btn  ">
-                                                            <i class="fa fa-clapperboard"></i></a>
-                                                        <a href="#" class="col-md-4 btn btn-danger">Go
-                                                        </a>
-                                                    </div>
+                            <!-- Lessons Table -->
+                            <table id="lessonTable" class="table container" *ngIf="unit.unit_id === unitId">
+                                <tbody class="row">
+                                    <div *ngFor="let lesson of lessons ; let i=index" class="card col-md-4">
+                                        <div *ngIf="lesson.unit_id==unit.unit_id">
+                                            <img src="../../../assets/books.png" class="card-img-top">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{lesson.unit_name}}</h5>
+                                                <p class="card-text">{{lesson.lesson_name}} </p>
+                                                <p class="fw-lighter smalltext text-wrap card-text">
+                                                    {{lesson.description}}
+                                                </p>
+                                                <div class="row ">
+                                                    <a class="col-md-4 btn btn-primary "
+                                                        (click)="viewLesson(lesson.lesson_name)">Go
+                                                    </a>
+                                                    <a href="#" class="col-md-4 btn  ">
+                                                        <i class="fa fa-clapperboard"></i></a>
+                                                    <a href="#" class="col-md-4 btn btn-danger">Go
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <tr *ngFor="let lesson of lessons ; let i=index">
-                                            <div class="oneLesson" *ngIf="lesson.unit_id==unit.unit_id">
-                                                <td><button class="btn"
-                                                        (click)="viewLesson(lesson.lesson_name)">{{lesson.lesson_name}}</button>
-                                                </td>
-                                            </div>
-                                        </tr> -->
-                                    </tbody>
-                                </table>
-                            </div>
+                                    </div>
+                                </tbody>
+                            </table>
+                            <!-- Lessons Table -->
                         <td class="text-right col-md-3 addButton">
                             <button type="button" style="border-radius: 0px;border: black; background: none;">
                                 <img src="../../../assets/ButtonArrow.png" alt="">
@@ -67,7 +59,7 @@
             </tbody>
         </table>
     </div>
-    <!-- show units and classes -->
+    <!-- show units and Lessons -->
     <!-- add content -->
     <form [formGroup]="form" *ngIf="state ==='add'">
         <div class="formGroup row panel-body">
@@ -202,6 +194,5 @@
                 (submit)="handleFormSubmit($event)"></app-content-form>
         </div>
     </form>
-
     <!-- add content -->
 </div>

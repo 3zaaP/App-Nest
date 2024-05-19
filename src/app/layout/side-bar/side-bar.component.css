@@ -78,6 +78,25 @@ header a {
 /* Mobile View */
 @media only screen and (max-width: 650px) {
     .page-container {
+        max-width: 10% !important;
+    }
+
+    .nav button {
+        font-size: 10px;
+        text-align: center;
+    }
+
+    .nav button img {
         display: none;
+    }
+
+    header a {
+        position: relative;
+        z-index: 100;
+        background: url('../../../assets/mozakrah.png') no-repeat center;
+        background-size: 250%;
+        height: 100px;
+        color: #fff;
+        display: block;
     }
 }
