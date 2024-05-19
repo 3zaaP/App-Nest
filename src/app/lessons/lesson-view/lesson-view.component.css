@@ -5,6 +5,7 @@
     padding: 1rem;
     border-radius: 12px;
     margin-bottom: 1rem;
+    color: black;
 }
 
 .panel-body {
@@ -16,12 +17,12 @@
 
 @media only screen and (max-width: 600px) {
     .lesson-container {
-
         margin: 2rem;
-        margin-right: 0%;
+        margin-right: 10%;
         padding: 1rem;
         border-radius: 12px;
         margin-bottom: 1rem;
+        width: 90%;
     }
 
     .panel-body {
